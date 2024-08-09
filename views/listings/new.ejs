@@ -1,24 +1,25 @@
-<% layout("/layouts/boilerPlate.ejs") %>
-<br><br>
+<% layout("/layouts/boiler.ejs") %>
+    <br><br>
     <div class="row">
         <div class="col-8 offset-2">
             <h3>Create a new post</h3>
             <form action="/listings" method="POST" novalidate class=" needs-validation" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" name="listing[title]" id="" placeholder="Enter catchy title" class="form-control" required>
+                    <input type="text" name="listing[title]" id="" placeholder="Enter catchy title" class="form-control"
+                        required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
-                </div>             
+                </div>
 
                 <div class="mb-3">
                     <label for="discription" class="form-label">Description</label>
-                    <textarea name="listing[description]" id="" placeholder="Enter description"
-                        class="form-control" required></textarea>
-                        <div class="invalid-feedback">
-                            Please Enter a small description
-                        </div>
+                    <textarea name="listing[description]" id="" placeholder="Enter description" class="form-control"
+                        required></textarea>
+                    <div class="invalid-feedback">
+                        Please Enter a small description
+                    </div>
                 </div>
 
                 <div class="mb-3">
@@ -37,20 +38,20 @@
                 <div class="row">
                     <div class="mb-3 col-md-8">
                         <label for="location" class="form-label">Location</label>
-                        <input type="text" name="listing[location]" id="" placeholder="Pune, Goa"
-                            class="form-control" required>
-                            <div class="invalid-feedback">
-                                Please Enter a valid location
-                            </div>
+                        <input type="text" name="listing[location]" id="" placeholder="Pune, Goa" class="form-control"
+                            required>
+                        <div class="invalid-feedback">
+                            Please Enter a valid location
+                        </div>
                     </div>
 
                     <div class="mb-3 col-md-4">
                         <label for="country" class="form-label">Country</label>
-                        <input type="text" name="listing[country]" id="" placeholder="India"
-                            class="form-control" required>
-                            <div class="invalid-feedback">
-                                Please Enter a valid country
-                            </div>
+                        <input type="text" name="listing[country]" id="" placeholder="India" class="form-control"
+                            required>
+                        <div class="invalid-feedback">
+                            Please Enter a valid country
+                        </div>
                     </div>
                 </div>
                 <button class="btn btn-dark">Add</button>

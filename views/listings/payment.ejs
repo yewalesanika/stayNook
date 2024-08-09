@@ -1,28 +1,43 @@
-<% layout("/layouts/boilerPlate.ejs") %>
-<div class="row justify-content-center mt-3 mb-3">
-    <a href="/listings/<%=listing._id%>/book" class="row justify-content-center"><button class="backbtn"><i class="fa-solid fa-arrow-left"></i></button></a><h3 class="card-title row justify-content-center"><%= listing.title %></h3>
-<div class="card col-2 mt-3 mb-3" style="width: 30rem;border-radius: 17px;">
-    <!-- Display the listing image -->
-    <img src="<%= listing.image.url %>" class="card-img-top mt-3" alt="<%= listing.title %>">
-    
-    <div class="card-body">
-        <!-- Display the title and description -->
-        <p class="card-text"><%= listing.description %></p>
+<% layout("/layouts/boiler.ejs") %>
+    <div class="row justify-content-center mt-3 mb-3">
+        <a href="/listings/<%=listing._id%>/book" class="row justify-content-center"><button class="backbtn"><i
+                    class="fa-solid fa-arrow-left"></i></button></a>
+        <h3 class="card-title row justify-content-center">
+            <%= listing.title %>
+        </h3>
+        <div class="card col-2 mt-3 mb-3" style="width: 30rem;border-radius: 17px;">
+            <!-- Display the listing image -->
+            <img src="<%= listing.image.url %>" class="card-img-top mt-3" alt="<%= listing.title %>">
+
+            <div class="card-body">
+                <!-- Display the title and description -->
+                <p class="card-text">
+                    <%= listing.description %>
+                </p>
+            </div>
+
+            <ul class="list-group list-group-flush">
+                <!-- Display additional information about the listing -->
+                <li class="list-group-item">Price: &#8377; <%= listing.price %> / night</li>
+                <li class="list-group-item">Location: <%= listing.location %>
+                </li>
+                <li class="list-group-item">Check In: <%= newBooking.bookFrom %>
+                </li>
+                <li class="list-group-item">Check Out: <%= newBooking.bookTo %>
+                </li>
+                <li class="list-group-item">Total Price Before GST: &#8377; <%= (totalPrice /
+                        1.18).toLocaleString("en-IN") %>
+                </li>
+                <li class="list-group-item">GST (18%): &#8377; <%= (totalPrice - (totalPrice /
+                        1.18)).toLocaleString("en-IN") %>
+                </li>
+                <li class="list-group-item">Total Price: &#8377; <%= totalPrice.toLocaleString("en-IN") %>
+                </li>
+            </ul>
+
+            <div class="card-body">
+                <button class="btn btn-dark"><a href="/listings/<%= listing._id %>/book/<%=newBooking._id%>/card"
+                        style="text-decoration: none;color: white;">Payment</a></button>
+            </div>
+        </div>
     </div>
-    
-    <ul class="list-group list-group-flush">
-        <!-- Display additional information about the listing -->
-        <li class="list-group-item">Price:  &#8377; <%= listing.price %> / night</li>
-        <li class="list-group-item">Location: <%= listing.location %></li>
-        <li class="list-group-item">Check In: <%= newBooking.bookFrom %></li>
-        <li class="list-group-item">Check Out: <%= newBooking.bookTo %></li>
-        <li class="list-group-item">Total Price Before GST: &#8377; <%= (totalPrice / 1.18).toLocaleString("en-IN") %></li>
-        <li class="list-group-item">GST (18%): &#8377; <%= (totalPrice - (totalPrice / 1.18)).toLocaleString("en-IN") %></li>
-        <li class="list-group-item">Total Price: &#8377; <%= totalPrice.toLocaleString("en-IN") %></li>
-    </ul>
-    
-    <div class="card-body">
-        <button class="btn btn-dark"><a href="/listings/<%= listing._id %>/book/<%=newBooking._id%>/card" style="text-decoration: none;color: white;">Payment</a></button>
-    </div>
-</div>
-</div>

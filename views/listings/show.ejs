@@ -1,4 +1,4 @@
-<% layout("/layouts/boilerPlate.ejs") %>
+<% layout("/layouts/boiler.ejs") %>
     <div class="row mt-3">
         <div class="col-8 offset-3">
         </div>
@@ -35,18 +35,19 @@
                 <% if (currUser && currUser._id.equals(listing.owner._id)) { %>
                     <div class="btn-group d-flex flex-column flex-md-row mb-3">
                         <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark mb-2 mb-md-0 me-md-2">Edit</a>
-                        <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST" class="mb-2 mb-md-0 me-md-2">
+                        <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST"
+                            class="mb-2 mb-md-0 me-md-2">
                             <button class="btn btn-dark">Delete</button>
                         </form>
                         <a href="/listings/<%= listing._id %>/admin" class="btn btn-dark">Show Bookings</a>
                     </div>
-                <% } %>
-                <% if (!currUser || !currUser._id.equals(listing.owner._id)) { %>
-                    <a href="/listings/<%= listing._id %>/book">
-                        <button class="btn btn-dark offset-4 mt-2">Book</button>
-                    </a>
-                <% } %>
-                
+                    <% } %>
+                        <% if (!currUser || !currUser._id.equals(listing.owner._id)) { %>
+                            <a href="/listings/<%= listing._id %>/book">
+                                <button class="btn btn-dark offset-4 mt-2">Book</button>
+                            </a>
+                            <% } %>
+
             </div>
         </div>
 
