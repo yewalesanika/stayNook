@@ -1,0 +1,34 @@
+<% layout("/layouts/boilerPlate.ejs") %>
+<div class="container mt-3">
+    <h3 class="text-center mb-4 d-flex align-items-center justify-content-center">
+        <a href="/listings/<%= listing._id %>">
+            <button class="backbtn btn btn-light me-3">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+        </a>
+        <span><%= listing.title %></span>
+    </h3>
+    <div class="admin-title row fw-bold">
+        <div class="col-md-2">Name</div>
+        <div class="col-md-2">Check-In</div>
+        <div class="col-md-2">Check-Out</div>
+        <div class="col-md-2">Guest</div>
+        <div class="col-md-2">Contact</div>
+        <div class="col-md-2">Delete</div>
+    </div>
+    <% for (let booking of bookings) { %>
+    <div class="admin-container row align-items-center border-bottom py-2">
+        <div class="col-md-2"><%= booking.name %></div>
+        <div class="col-md-2"><%= new Date(booking.bookFrom).toLocaleDateString('en-GB') %></div>
+        <div class="col-md-2"><%= new Date(booking.bookTo).toLocaleDateString('en-GB') %></div>
+        <div class="col-md-2"><%= booking.people %></div>
+        <div class="col-md-2"><%= booking.contact %></div>
+        <div class="col-md-2">
+            <form action="/listings/<%= listing._id %>/admin?_method=DELETE" method="POST" onsubmit="return confirm('Are you sure you want to delete this booking?');">
+                <input type="hidden" name="bookingId" value="<%= booking._id %>">
+                <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+    <% } %>
+</div>

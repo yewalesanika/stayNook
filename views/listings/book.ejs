@@ -1,0 +1,63 @@
+<% layout("/layouts/boilerPlate.ejs") %>
+    <br><br>
+    <div class="row"> 
+        <div class="col-8 offset-2">
+            <div><a href="/listings/<%=id %>"><button class="backbtn"><i class="fa-solid fa-arrow-left"></i></button></a>
+            <h3>Booking</h3> 
+            <form action="/listings/<%=id %>/book" method="POST" novalidate class=" needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" name="booking[name]" id="" placeholder="Enter your name" class="form-control"
+                        required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Enter Email</label>
+                    <input type="email" name="booking[email]" id="" required class="form-control">
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="checkin" class="form-label">Check In</label>
+                        <input type="date" name="booking[bookFrom]" id="" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please Enter a valid date
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        <label for="checkout" class="form-label">Check Out</label>
+                        <input type="date" name="booking[bookTo]" id="" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please Enter a valid date
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="row">
+                    <div class="mb-3 col-md-8">
+                        <label for="contact" class="form-label">Contact No.</label>
+                        <input type="text" name="booking[contact]" id="" placeholder="9999999999" class="form-control"
+                            required>
+                        <div class="invalid-feedback">
+                            Please Enter a valid number
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-4">
+                        <label for="people" class="form-label">Guest</label>
+                        <input type="number" name="booking[people]" id="" placeholder="5" class="form-control"
+                            required>
+                        <div class="invalid-feedback">
+                            Please Enter a valid number
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-dark" type="submit">Book</button>
+                <br><br>
+            </form>
+        </div> 
+    </div>
